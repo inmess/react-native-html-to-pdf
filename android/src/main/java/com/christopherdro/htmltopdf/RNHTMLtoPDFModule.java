@@ -63,10 +63,12 @@ public class RNHTMLtoPDFModule extends ReactContextBaseJavaModule {
       }
 
       if (options.hasKey(DIRECTORY)) {
-        String state = Environment.getExternalStorageState();
-        File path = (Environment.MEDIA_MOUNTED.equals(state)) ?
-          new File(mReactContext.getExternalFilesDir(null), options.getString(DIRECTORY)) :
-          new File(mReactContext.getFilesDir(), options.getString(DIRECTORY));
+        // String state = Environment.getExternalStorageState();
+        // Here we can use our custom directory such as Expo's FileSystem.documentDirectory
+        File path = new File(options.getString(DIRECTORY).replace("file://", ""));
+        // (Environment.MEDIA_MOUNTED.equals(state)) ?
+        //   new File(mReactContext.getExternalFilesDir(null), options.getString(DIRECTORY)) :
+        //   new File(mReactContext.getFilesDir(), options.getString(DIRECTORY));
 
         if (!path.exists()) {
           if (!path.mkdirs()) {
