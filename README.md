@@ -100,7 +100,7 @@ export default class Example extends Component {
 | `html` | `string` |  | HTML string to be converted
 | `fileName` | `string` | Random  | Custom Filename excluding .pdf extension
 | `base64` | `boolean` | false  | return base64 string of pdf file (not recommended)
-| `directory` | `string` |default cache directory| Directory where the file will be created (`Documents` folder in example above). Please note, on iOS `Documents` is the only custom value that is accepted.
+| `directory` | `string` |default cache directory| Directory where the file will be created (`Documents` folder in example above). Please note, on iOS `Documents` is the only custom value that is accepted, and `Document` will no longer available on Android, accept directory path starts with `file://`.
 | `height` | number | 792  | Set document height (points)
 | `width` | number | 612  | Set document width (points)
 
